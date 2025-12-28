@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  color: #fff;
+}
+
+:root {
+  --text-size: 1rem;
+  --mail-icon-size: 3rem;
+}
+
+.content,
+.bg,
+.preload {
+  position: fixed;
+  inset: 0;
+}
+
+.bg {
+  background-position: center;
+  background-size: cover;
+}
+
+.preload p {
+  animation: anm-load 2s ease infinite;
+}
+
+@keyframes anm-load {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.content:not(.show) {
+  display: none;
+}
+
+.opening,
+.main-content,
+.preload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px 10px 30px;
+}
+
+.opening .mail-icon {
+  font-size: var(--mail-icon-size);
+  background: none;
+  border: none;
+}
+
+.opening .btn-open {
+  font-size: var(--text-size);
+  background: none;
+  border: none;
+  margin-top: 2rem;
+}
+
+.content {
+  animation: anm-show 1.5s ease forwards;
+}
+
+.content.hide > * {
+  transition: 1.5s;
+  filter: blur(10px);
+  opacity: 0;
+}
+
+@keyframes anm-show {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.main-content .foto {
+  max-height: 35%;
+  max-width: calc(90vw - 60px);
+  position: relative;
+  margin: 0 auto 30px;
+}
+
+.main-content .text {
+  font-size: var(--text-size);
+  max-height: 45%;
+  max-width: 400px;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.main-content.text-only .text {
+  max-height: 85%;
+}
+
+.main-content .next-btn {
+  font-size: var(--text-size);
+  background: none;
+  border: none;
+  margin-top: 20px;
+}
